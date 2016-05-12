@@ -2,7 +2,7 @@ node-red-contrib-marantz-http
 ==========================
 # Description
 
-Control your Marantz devices (AVR) over IP, by HTTP request from Node-RED.
+Control your Marantz AVR devices over IP, by HTTP request from Node-RED.
 
 # What's inside?
 
@@ -18,9 +18,14 @@ It will include three nodes:
 
 --- string data - REQUIRED
 
+# Install
+
+Run command on Node-RED installation directory
+	npm install node-red-contrib-marantz-http
+
 # Usage
 
-According to official documentation: http://nodered.org/docs/getting-started/adding-nodes.html
+![Image alt] (icons/example.png)
  
 # License
 
@@ -29,4 +34,4 @@ According to official documentation: http://nodered.org/docs/getting-started/add
 #TODO
 
 - Implement autodiscovery of Marantz devices.
-- Impement `marantz-http-in` node
+- Implement `marantz-http-in` node

@@ -39,11 +39,14 @@
 
 <script type="text/x-red" data-help-name="marantz-http-out">
     <p>
-        Use this to <b>send</b> marantz-http packets to Onkyo/Integra device familiar with marantz-http protocol.<br/>
-    	<b>msg.payload</b> must be a JavaScript object (with <b>cmd<b> and <b>args</b> fields) or a string.
+        Use this to <b>send</b> marantz-http packets to Marantz AVR device familiar with marantz-http protocol.<br/>
+    	<b>msg.payload</b> must be a JavaScript object (with <b>cmd</b> and <b>value</b> fields) or a string.
     </p>
     <p>
-        For example: <code>system-power=on</code> or <code>system-power=standby</code>
+        For example: <code>{"cmd": "power", "value": "on"}</code> or <code>{"cmd": "si", "value": "TUNER"}</code><br/>
+        Value for power cmd "power" is "on", "1", "off".<br/>
+        Value for select input cmd "si" is "TUNER", "SAT/CBL","BD","MPLAY", "GAME" and etc of protocol.<br/>
+        Value for surround mode cmd "sm" is "MOVIE", "MUSIC","GAME","DIRECT", "STEREO" and etc of protocol.  
     </p>
     <p>
         Please, take a look at full list of commands here: https://raw.githubusercontent.com/estbeetoo/marantz-http.js/master/marantz-http-commands.json

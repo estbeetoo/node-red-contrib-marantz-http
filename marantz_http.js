@@ -258,7 +258,7 @@ module.exports = function(RED) {
              DOLBY DIGITAL
              DTS SURROUND
              AURO3D
-             SURO2DSURR
+             AURO2D SURR
              MCH STEREO
              VIRTUAL
              LEFT
@@ -276,7 +276,8 @@ module.exports = function(RED) {
               });
               break;
             default:
-              node.log('Cannot proceed unknown cmd[%j] for msg[%j]', data.cmd, data);
+              node.log('Cannot proceed unknown cmd[' + data.cmd + '] for msg[' + JSON.stringify(data) +']');
+
           }
         }
         catch (err) {
