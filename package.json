@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-marantz-http",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Maranz AV Reciever Control for node-red throught HTTP protocol",
   "main": "marantz_http.js",
   "scripts": {

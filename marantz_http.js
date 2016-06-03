@@ -27,21 +27,21 @@ module.exports = function(RED) {
      * when successfully connected, passing it the marantz_telnet connection
      */
     this.initializeMarantzConnection = function(handler) {
+      var afterConnected = function() {
+        handler(node.marantz);
+      };
       if (node.marantz) {
         DEBUG && RED.comms.publish("debug", {
           name: node.name,
           msg: 'already configured connection to Marantz at ' + config.host + ':' + config.port
         });
         if (handler && (typeof handler === 'function')) {
-          if (node.marantz.connection && node.marantz.connected)
-            handler(node.marantz);
+          if (node.marantz.isConnected())
+            afterConnected();
           else {
-            if (node.marantz.connection && !node.marantz.connected)
-              node.marantz.connect();
-            node.marantz.on('connected', function() {
-              handler(node.marantz);
-            });
-
+            node.marantz.connect();
+            node.marantz.off('connected', afterConnected);
+            node.marantz.on('connected', afterConnected);
           }
         }
         return node.marantz;
@@ -54,9 +54,8 @@ module.exports = function(RED) {
       });
       node.marantz.connect();
       if (handler && (typeof handler === 'function')) {
-        node.marantz.on('connected', function() {
-          handler(node.marantz);
-        });
+        node.marantz.off('connected', afterConnected);
+        node.marantz.on('connected', afterConnected);
       }
       DEBUG && RED.comms.publish("debug", {
         name: node.name,
