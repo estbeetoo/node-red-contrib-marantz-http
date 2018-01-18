@@ -40,7 +40,9 @@
 <script type="text/x-red" data-help-name="marantz-http-out">
     <p>
         Use this to <b>send</b> marantz-http packets to Marantz AVR device familiar with marantz-http protocol.<br/>
-    	<b>msg.payload</b> must be a JavaScript object (with <b>cmd</b> and <b>value</b> fields) or a string.
+    	<b>msg.payload</b> must be a JavaScript object (with <b>cmd</b> and <b>value</b> fields) or a string. 
+        Only integer percent value (0-100%) could be sent with volume topic.
+        The msg.topic field can also be used to fill the command, the value should be in payload.value or payload.cmd in that case
     </p>
     <p>
         For example: <code>{"cmd": "power", "value": "on"}</code> or <code>{"cmd": "si", "value": "TUNER"}</code><br/>
