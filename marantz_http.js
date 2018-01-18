@@ -240,7 +240,7 @@ module.exports = function(RED) {
             case 'volume_level':
             case 'vol_level':
             case 'vollevel':
-              fsm.connection.setVolumeLevelPercent(parseInt(data.value),10).then(function(response) {
+              fsm.connection.setVolumeLevelPercent(parseInt(data.value,10)).then(function(response) {
                 callback && callback(response);
               }, function(error) {
                 callback && callback(error, response);
